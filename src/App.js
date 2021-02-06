@@ -38,9 +38,9 @@ class Tabella extends React.Component {
 }
 
 function App() {
-  const [dataoggi, setdata] = useState(
-    {data: new Date()}
-  );
+  const [dataoggi, setdata] = useState({
+    data: new Date()
+  });
   return (
     <div className="App">
       <Header/>
