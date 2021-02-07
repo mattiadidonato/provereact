@@ -71,16 +71,46 @@ class Prova extends React.Component {
   }
 }
 
+class Form extends React.Component{
+  state = {
+    value:''
+  }
+  handleSubmit = () => {
+    this.props.submit(this.state.value)
+  }
+  onChangeText = (e) =>{
+    //e è l'evento che prendo sull' onChange cioe mentre scrivo
+    //voglio che il e.target.value che è cio che scrivo 
+    //vada a essere il value props di Form
+    this.setState({
+      value: e.target.value
+    })
+  }
+  render(){
+    return(
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" value={this.state.value} placeholder="aggiungi" onChange={this.onChangeText}></input>
+      </form>
+    )
+  }
+}
+
 function App() {
   const [dataoggi, setdata] = useState({
     data: new Date()
   });
+
+  function Riga() {
+    //const newtodo = [...]
+    alert("orco zio")
+  }
   return (
     <div className="App">
       <Header/>
       <p>usando la useState() {dataoggi.data.toLocaleTimeString()}</p>
       <Tabella/>
       <Prova/>
+      <Form submit={Riga}/>
     </div>
     
   );
